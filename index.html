@@ -88,7 +88,7 @@ document.getElementById("withdraw-btn").addEventListener("click", function(){
     const withdrawAmountNmbr = inputNmbr("withdraw-amount")
     updateNumber("current-withdraw", withdrawAmountNmbr);
     updateNumber("current-balance", -1 * withdrawAmountNmbr);
-    document.getElementById("deposit-amount").value = "";
+    document.getElementById("withdraw-amount").value = "";
 })
 function inputNmbr(id) {
     const amount = document.getElementById(id).value;
