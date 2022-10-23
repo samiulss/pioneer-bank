@@ -77,18 +77,28 @@ document.getElementById("login-area").addEventListener("click", function(){
 
 // DEPOSIT BUTTON HANDLER EVENT
 document.getElementById("deposit-btn").addEventListener("click", function(){
-    const depositAmountNmbr = inputNmbr("deposit-amount")
-    updateNumber("current-deposit", depositAmountNmbr);
-    updateNumber("current-balance", depositAmountNmbr);
-    document.getElementById("deposit-amount").value = "";
+    const depositAmountNmbr = inputNmbr("deposit-amount");
+    if (depositAmountNmbr < 0 || document.getElementById("deposit-amount").value == "") {
+        alert("Amount value is not correct");
+    }
+    else{
+        updateNumber("current-deposit", depositAmountNmbr);
+        updateNumber("current-balance", depositAmountNmbr);
+        document.getElementById("deposit-amount").value = "";
+    }
 })
 
 // WITHDRAW BUTTON HANDLER EVENT
 document.getElementById("withdraw-btn").addEventListener("click", function(){
-    const withdrawAmountNmbr = inputNmbr("withdraw-amount")
-    updateNumber("current-withdraw", withdrawAmountNmbr);
-    updateNumber("current-balance", -1 * withdrawAmountNmbr);
-    document.getElementById("withdraw-amount").value = "";
+    const withdrawAmountNmbr = inputNmbr("withdraw-amount");
+    if (withdrawAmountNmbr < 0 || document.getElementById("withdraw-amount").value == "") {
+        alert("Amount value is not correct");
+    }
+    else{
+        updateNumber("current-withdraw", withdrawAmountNmbr);
+        updateNumber("current-balance", -1 * withdrawAmountNmbr);
+        document.getElementById("withdraw-amount").value = "";
+    }
 })
 function inputNmbr(id) {
     const amount = document.getElementById(id).value;
